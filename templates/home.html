@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h4>Hi {{ user.username }}!</h4>
+    <p><a href="{% url 'logout' %}">Log Out</a> |
+    <a href="{% url 'user_edit' %}">Edit Profile</a></p>
+{% else %}
+    <h4>You are not logged in!</h4>
+    <p><a href="{% url 'login' %}">Log In</a> |
+    <a href="{% url 'signup' %}">Sign Up</a></p>
+{% endif %}
+{% endblock content %}
