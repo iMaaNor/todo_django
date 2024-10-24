@@ -2,7 +2,9 @@
 
 {% block title %}{{ task.title }}{% endblock title %}
 {% block content %}
-<h4><a href="{% url 'task_list' %}">Back to task list</a></h4>
+<h4><a href="{% url 'task_list' %}">Back to task list</a> | 
+    <a href="{% url 'task_edit' task.pk %}">Edit Task</a> |
+    <a href="{% url 'task_delete' task.pk %}">Delete Task</a></h4>
 <hr>
 <h3>Title : {{ task.title }}</h3>
 <p>status : {{ task.status }} 

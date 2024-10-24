@@ -3,13 +3,13 @@
 {% block content %}
 {% if user.is_authenticated %}
     <h4>Hi {{ user.username }}!</h4>
-    <p><a href="{% url 'logout' %}">Log Out</a> |
-    <a href="{% url 'user_edit' %}">Edit Profile</a></p>
+    <p><a href="{% url 'task_list' %}">Task List</a></p>
+    <p><a href="{% url 'task_add' %}">Add New Task</a></p>
+    <p><a href="{% url 'user_edit' %}">Edit Account</a></p>
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
     <hr>
-    <h4><a href="{% url 'task_list' %}">Show my tasks</a></h4>
 {% else %}
     <h4>You are not logged in!</h4>
-    <p><a href="{% url 'login' %}">Log In</a> |
-    <a href="{% url 'signup' %}">Sign Up</a></p>
+    <hr>
 {% endif %}
 {% endblock content %}

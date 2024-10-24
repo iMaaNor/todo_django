@@ -9,6 +9,7 @@ class TaskAdmin(admin.ModelAdmin):
         "title",
         "due_date",
         "status",
+        "user",
     ]
     list_filter = [
         "status",
