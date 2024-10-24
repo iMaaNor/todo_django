@@ -5,6 +5,8 @@
     <h4>Hi {{ user.username }}!</h4>
     <p><a href="{% url 'logout' %}">Log Out</a> |
     <a href="{% url 'user_edit' %}">Edit Profile</a></p>
+    <hr>
+    <h4><a href="{% url 'task_list' %}">Show my tasks</a></h4>
 {% else %}
     <h4>You are not logged in!</h4>
     <p><a href="{% url 'login' %}">Log In</a> |

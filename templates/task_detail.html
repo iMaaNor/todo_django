@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ task.title }}{% endblock title %}
+{% block content %}
+<h4><a href="{% url 'task_list' %}">Back to task list</a></h4>
+<hr>
+<h3>Title : {{ task.title }}</h3>
+<p>status : {{ task.status }} 
+    {% if task.due_date %}| due_date : {{ task.due_date }}{% endif %}</p>
+<h4>Description : {{ task.description }}</h4>
+<hr>
+{% endblock content %}

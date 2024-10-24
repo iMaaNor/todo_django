@@ -9,6 +9,7 @@ class CustomUserCreationForm(UserCreationForm):
         fields = UserCreationForm.Meta.fields + (
             "first_name",
             "last_name",
+            "gender",
             "email",
             "date_of_birth",
         )
@@ -27,7 +28,8 @@ class UserEditForm(forms.ModelForm):
         fields = (
             "first_name",
             "last_name",
-            "date_of_birth",
+            "gender",
             "email",
+            "date_of_birth",
         )
         widgets = {"date_of_birth": forms.widgets.DateInput(attrs={"type": "date"})}
