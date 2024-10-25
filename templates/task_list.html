@@ -3,7 +3,7 @@
 {% block title %}Tasks List{% endblock title %}
 {% block content %}
 {% for task in task_list %}
-    <h4><a href="{% url 'task_detail' task.pk %}">{{ task.title }}</a></h4>
+    <h3><a href="{% url 'task_detail' task.pk %}">{{ task.title }}</a></h3>
     <p>status : {{ task.status }} 
         {% if task.due_date %}| due_date : {{ task.due_date }}{% endif %}</p>
     <hr>

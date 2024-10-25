@@ -21,3 +21,8 @@ class Task(models.Model):
 
     def get_absolute_url(self):
         return reverse_lazy("task_detail", kwargs={"pk": self.pk})
+
+
+class Note(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    note = models.CharField(max_length=200)

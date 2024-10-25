@@ -1,5 +1,5 @@
 from django import forms
-from .models import Task
+from .models import Task, Note
 
 
 class TaskForm(forms.ModelForm):
@@ -14,3 +14,11 @@ class TaskForm(forms.ModelForm):
         widgets = {
             "due_date": forms.widgets.DateTimeInput(attrs={"type": "datetime-local"}),
         }
+
+
+class NoteForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = [
+            "note",
+        ]

@@ -6,9 +6,22 @@
     <a href="{% url 'task_edit' task.pk %}">Edit Task</a> |
     <a href="{% url 'task_delete' task.pk %}">Delete Task</a></h4>
 <hr>
-<h3>Title : {{ task.title }}</h3>
+<h2>{{ task.title }}</h2>
 <p>status : {{ task.status }} 
     {% if task.due_date %}| due_date : {{ task.due_date }}{% endif %}</p>
-<h4>Description : {{ task.description }}</h4>
+<h3>Description : </h3>
+<p>{{ task.description }}</p>
+<hr>
+<h2>Notes : </h2>
+{% for note in task.note_set.all %}
+    <p>{{ note.note }} | 
+        <a href="{% url 'note_edit' note.pk %}">Edit</a> | 
+        <a href="{% url 'note_delete' note.pk%}">Delete</a></p>
+{% endfor %}
+<h4>Add Note : </h4>
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Note</button>
+</form>
 <hr>
 {% endblock content %}

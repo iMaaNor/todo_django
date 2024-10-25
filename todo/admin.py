@@ -1,8 +1,13 @@
 from django.contrib import admin
-from .models import Task
+from .models import Task, Note
 
 
 # Register your models here.
+class NoteInline(admin.TabularInline):
+    model = Note
+    extra = 1
+
+
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = [
@@ -19,3 +24,4 @@ class TaskAdmin(admin.ModelAdmin):
         "title",
         "description",
     ]
+    inlines = [NoteInline]
